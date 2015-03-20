@@ -1,0 +1,8 @@
+TO-DO:
+
+THRUST:
+
+- transform: applies a unary function to each element -> http://thrust.github.io/doc/group__transformations.html#ga233a3db0c5031023c8e9385acd4b9759
+- transform TO calculate objective function ?
+
+-> SWAP: http://thrust.github.io/doc/group__swap.html
