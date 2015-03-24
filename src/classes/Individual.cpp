@@ -437,17 +437,31 @@ Individual Individual::evolve() {
 //
 //}
 
+//void Individual::mutate() {
+//
+//    int x, y;
+//
+//    this->autoUpdate();
+//
+//    try {
+//        for (int i = 0; i < this->getNumOperations(); ++i) {
+//            Random::randTwoNumbers(0, this->getGene().size() - 1, x, y);
+//            swap(this->getGene().at(x), this->getGene().at(y));
+//        }
+//    } catch (exception &e) {
+//        cout << "Individual::mutate() => " << e.what() << '\n';
+//        cout << "X = " << x << "\tY = " << y << "\tSize = " << this->getGene().size() << endl;
+//    }
+//
+//    this->setChanged(true);
+//}
+
 void Individual::mutate() {
 
     int x, y;
 
-    this->autoUpdate();
-
     try {
-        for (int i = 0; i < this->getNumOperations(); ++i) {
-            Random::randTwoNumbers(0, this->getGene().size() - 1, x, y);
-            swap(this->getGene().at(x), this->getGene().at(y));
-        }
+    	cudaMutate(this->getGene());
     } catch (exception &e) {
         cout << "Individual::mutate() => " << e.what() << '\n';
         cout << "X = " << x << "\tY = " << y << "\tSize = " << this->getGene().size() << endl;

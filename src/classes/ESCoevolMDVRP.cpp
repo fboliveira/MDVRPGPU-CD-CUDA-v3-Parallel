@@ -6,7 +6,6 @@
  */
 
 #include "ESCoevolMDVRP.hpp"
-#include "PathRelinking.hpp"
 
 /*
  * Constructors and Destructor
@@ -145,6 +144,7 @@ void ESCoevolMDVRP::testFunction(MDVRPProblem* problem, AlgorithmConfig* config)
 
 void ESCoevolMDVRP::testFunction(MDVRPProblem* problem, AlgorithmConfig* config, Community* community) {
 
+/*
     PathRelinking pathRelinking = PathRelinking(problem, config);
     
     community->getEliteGroup()->getEliteGroup().at(2).printSolution();
@@ -152,5 +152,14 @@ void ESCoevolMDVRP::testFunction(MDVRPProblem* problem, AlgorithmConfig* config,
     pathRelinking.operate(community->getEliteGroup()->getEliteGroup().at(2), community->getEliteGroup()->getBest());
 
     community->getEliteGroup()->getEliteGroup().at(2).printSolution();
+*/
+
+	Individual i = community->getSubpops().at(0).getIndividualsGroup().getIndividuals().at(0);
+
+	i.print(true);
+	cudaMutate(i.getGene());
+	i.evaluate(true);
+	i.print(true);
+
     
 }

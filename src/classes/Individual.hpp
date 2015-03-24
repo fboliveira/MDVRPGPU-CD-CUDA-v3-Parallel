@@ -22,6 +22,8 @@
 #include "LocalSearch.hpp"
 #include "Lock.hpp"
 
+#include "../cuda/cuda_functions.h"
+
 using namespace std;
 
 class Individual {

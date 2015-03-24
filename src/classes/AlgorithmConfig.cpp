@@ -209,8 +209,8 @@ void AlgorithmConfig::setParameters(MDVRPProblem *problem) {
     //this->setStopCriteria(NUM_GER); 
 
     // Tipo de processamento
-    //this->setProcessType(MULTI_THREAD);
-    this->setProcessType(MONO_THREAD);
+    this->setProcessType(MULTI_THREAD);
+    //this->setProcessType(MONO_THREAD);
 
     // MODO DE DEBUG
     this->setDebug(true);
@@ -219,7 +219,7 @@ void AlgorithmConfig::setParameters(MDVRPProblem *problem) {
     this->setDisplay(true);
 
     // Tempo limite de execucao (s) para criterioParada == TEMPO
-    this->setExecutionTime(1 * 60); // 15 * 60
+    this->setExecutionTime(30 * 60); // 15 * 60
 
     // Max time without update
     this->setMaxTimeWithoutUpdate(10 * 60); // 10 * 60
