@@ -72,8 +72,8 @@ void ESCoevolMDVRP::run() {
     // Evaluate All Vs Best
     community->evaluateSubpops(true);
 
-    //ESCoevolMDVRP::testFunction(this->getProblem(), this->getConfig(), community);
-    //return;
+    ESCoevolMDVRP::testFunction(this->getProblem(), this->getConfig(), community);
+    return;
     
     // Print evolution
     community->printEvolution();
@@ -156,10 +156,11 @@ void ESCoevolMDVRP::testFunction(MDVRPProblem* problem, AlgorithmConfig* config,
 
 	Individual i = community->getSubpops().at(0).getIndividualsGroup().getIndividuals().at(0);
 
-	i.print(true);
-	cudaMutate(i.getGene());
-	i.evaluate(true);
-	i.print(true);
+//	i.print(true);
+//	cudaMutate(i.getGene());
+//	i.evaluate(true);
+//	i.print(true);
+	cudaTeste();
 
     
 }

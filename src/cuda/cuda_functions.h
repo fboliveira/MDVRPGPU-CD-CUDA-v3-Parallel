@@ -15,6 +15,7 @@
 #include <cuda_runtime.h>
 #include <thrust/host_vector.h>
 #include <thrust/device_vector.h>
+#include "ManagedMatrix.h"
 
 #include "../classes/Random.hpp"
 #include "../classes/Util.hpp"
@@ -23,5 +24,6 @@
 #include "cuda_types.h"
 
 void cudaMutate(::vector<int>& genes);
+void cudaTeste();
 
 #endif /* CUDA_FUNCTIONS_H_ */

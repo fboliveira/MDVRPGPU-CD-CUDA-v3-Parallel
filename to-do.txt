@@ -6,3 +6,8 @@ THRUST:
 - transform TO calculate objective function ?
 
 -> SWAP: http://thrust.github.io/doc/group__swap.html
+
+Possibilidades para a GPU:
+
+- Elite group LS na GPU;
+- Evaluate;

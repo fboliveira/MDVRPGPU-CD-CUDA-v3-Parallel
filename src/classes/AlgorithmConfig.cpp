@@ -219,12 +219,12 @@ void AlgorithmConfig::setParameters(MDVRPProblem *problem) {
     this->setDisplay(true);
 
     // Tempo limite de execucao (s) para criterioParada == TEMPO
-    this->setExecutionTime(30 * 60); // 15 * 60
+    this->setExecutionTime(15 * 60); // 15 * 60
 
     // Max time without update
     this->setMaxTimeWithoutUpdate(10 * 60); // 10 * 60
     
-#if SOURCE==2
+#if SOURCE==3
     // Save log run to file -- last result
     this->setSaveLogRunFile(true);
 #else

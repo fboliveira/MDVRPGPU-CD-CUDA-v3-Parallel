@@ -144,6 +144,17 @@ int main(int argc, char** argv) {
     printf("Busca Local.: %s\n", config->getLocalSearchType() == RANDOM ? "BLA" : "BLS");
     cout << "\n\n";
 
+    //    problem->getMngDepotDistances().print();
+    //    cout << "\n\n";
+    //    problem->getMngCustomerDistances().print();
+    //    cout << "\n\n";
+    //    cout << "\n\n";
+    //	  problem->print();
+    //    return 0;
+
+    //    problem->getMngDemand().print();
+    //    return 0;
+
     ESCoevolMDVRP esCoevolMDVRP = ESCoevolMDVRP(problem, config);
     esCoevolMDVRP.run();
 
@@ -157,5 +168,6 @@ int main(int argc, char** argv) {
     delete problem;
     delete config;
 
+    cudaDeviceReset();
     return 0;
 }

@@ -89,6 +89,11 @@
 								<option id="nvcc.compiler.option.level.1393545608" name="Generate host debug information (-g)" superClass="nvcc.compiler.option.level"/>
 								<option defaultValue="nvcc.compiler.optimization.level.most" id="nvcc.compiler.optimization.level.2021960613" name="Optimization Level" superClass="nvcc.compiler.optimization.level" valueType="enumerated"/>
 								<option id="nvcc.compiler.pic.2133689339" name="Position Independent Code (-fPIC)" superClass="nvcc.compiler.pic"/>
+								<option id="nvcc.compiler.cpp11option.1497477767" superClass="nvcc.compiler.cpp11option" value="true" valueType="boolean"/>
+								<option id="nvcc.compiler.verbose.97112622" superClass="nvcc.compiler.verbose" value="true" valueType="boolean"/>
+								<option id="nvcc.compiler.compileroptions.3555828" superClass="nvcc.compiler.compileroptions" valueType="stringList">
+									<listOptionValue builtIn="false" value="-pthread"/>
+								</option>
 								<inputType id="nvcc.compiler.input.cu.843584139" superClass="nvcc.compiler.input.cu"/>
 								<inputType id="nvcc.compiler.input.cpp.1211068252" superClass="nvcc.compiler.input.cpp"/>
 								<inputType id="nvcc.compiler.input.c.936998053" superClass="nvcc.compiler.input.c"/>
@@ -116,6 +121,7 @@
 					<sass major="5" minor="0"/>
 					<ptx major="5" minor="0"/>
 				</executable>
+				<editor-arch major="5" minor="0"/>
 			</storageModule>
 		</cconfiguration>
 	</storageModule>

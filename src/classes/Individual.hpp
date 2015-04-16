@@ -23,6 +23,7 @@
 #include "Lock.hpp"
 
 #include "../cuda/cuda_functions.h"
+#include "../cuda/ManagedRoute.h"
 
 using namespace std;
 
@@ -39,6 +40,8 @@ class Individual {
     vector<int> gene;
     vector<Route> routes; // Trips with route delimiter - created, at first, using split algorithm.
     
+    ManagedRoute managedRoute;
+
     bool locked = false;
     
     /*Self-adaptive parameters*/

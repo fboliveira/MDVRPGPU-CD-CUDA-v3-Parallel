@@ -160,6 +160,18 @@ void MDVRPProblem::setNearestDepotsFromCustomer(typedef_vectorMatrix<int> neares
     this->nearestDepotsFromCustomer = nearestDepotsFromCustomer;
 }
 
+ManagedMatrix<float>& MDVRPProblem::getMngCustomerDistances() {
+	return mngCustomerDistances;
+}
+
+ManagedMatrix<float>& MDVRPProblem::getMngDepotDistances(){
+	return mngDepotDistances;
+}
+
+ManagedArray<int>& MDVRPProblem::getMngDemand() {
+	return mngDemand;
+}
+
 /*
  * Method
  */
@@ -208,6 +220,18 @@ void MDVRPProblem::allocateMemory() {
         allocation.at(i).resize(this->getDepots());
 
     this->setAllocation(allocation);
+
+    // GPU allocation
+    this->getMngCustomerDistances().setLines(this->getCustomers());
+    this->getMngCustomerDistances().setRows(this->getCustomers());
+    this->getMngCustomerDistances().init();
+
+    this->getMngDepotDistances().setLines(this->getDepots());
+    this->getMngDepotDistances().setRows(this->getCustomers());
+    this->getMngDepotDistances().init();
+
+    this->getMngDemand().setCols(this->getCustomers());
+    this->getMngDemand().init();
 
 }
 
@@ -265,6 +289,7 @@ void MDVRPProblem::processInstanceFiles(char* dataFile, char* solutionFile, char
 
         this->getCustomerPoints().at(i) = point;
         this->getDemand().at(i) = valueInt;
+        this->getMngDemand().set(i, valueInt);
 
         while (getc(data) != '\n');
     }
@@ -310,6 +335,9 @@ void MDVRPProblem::calculateMatrixDistance() {
                 // menor
                 this->getCustomerDistances().at(i).at(j) = pow(10, 3);
             }
+
+            this->getMngCustomerDistances().set(i, j, this->getCustomerDistances().at(i).at(j));
+
         }
     }
 
@@ -324,6 +352,7 @@ void MDVRPProblem::calculateMatrixDistance() {
                     this->getCustomerPoints().at(j).y);
 
             this->getDepotDistances().at(i).at(j) = dist;
+            this->getMngDepotDistances().set(i, j, dist);
 
         }
     }

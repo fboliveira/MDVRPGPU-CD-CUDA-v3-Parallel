@@ -18,7 +18,7 @@ using namespace std;
 #define	GLOBAL_H
 
 // INSTANCE TEST
-#define INST_TEST "p01"
+#define INST_TEST "pfbo02"
 
 #define SOURCE 3
 
@@ -41,7 +41,7 @@ using namespace std;
 // HUGO
 #define BASE_DIR_DAT "/home/fernando/Temp/MDVRP/dat/"
 #define BASE_DIR_SOL "/home/fernando/Temp/MDVRP/sol/"
-#define LOG_RUN_FILE "/home/fernando/Temp/MDVRP/mdvrpGPU-01-01.txt"
+#define LOG_RUN_FILE "/home/fernando/Temp/MDVRP/mdvrpGPU-hugo-01-01.txt"
 
 #endif
 
