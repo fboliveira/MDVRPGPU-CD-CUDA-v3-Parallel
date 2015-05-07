@@ -44,7 +44,7 @@ void cudaMutate(::vector<int>& genes) {
 	Random::randPermutation(genes.size(), 0, key);
 	int s = genes.size();
 
-	//Util::print(key);
+	//Util::print(genes);
 
 	thrust::host_vector<int> h_res(s);
 	thrust::device_vector<int> d_genes = genes;
@@ -60,8 +60,9 @@ void cudaMutate(::vector<int>& genes) {
 
 	mutateIndividual<<<blocksPerGrid, threadsPerBlock>>>( convertToKernel(d_genes), convertToKernel(d_keys),
 			convertToKernel(d_res) );
+	cudaDeviceSynchronize();
 
-	genes.clear();
+	genes.clear()	;
 
 	// transfer data back to host
 	thrust::copy(d_res.begin(), d_res.end(), h_res.begin());

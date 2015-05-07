@@ -23,7 +23,8 @@
 #include "Lock.hpp"
 
 #include "../cuda/cuda_functions.h"
-#include "../cuda/ManagedRoute.h"
+#include "../cuda/ManagedRoute.hpp"
+#include "../cuda/ManagedLocalSearch.hpp"
 
 using namespace std;
 
@@ -38,9 +39,10 @@ class Individual {
     bool changed;
 
     vector<int> gene;
-    vector<Route> routes; // Trips with route delimiter - created, at first, using split algorithm.
+    //vector<Route> routes; // Trips with route delimiter - created, at first, using split algorithm.
     
-    ManagedRoute managedRoute;
+    // PAREI AQUI:
+    vector<ManagedRoute> routes;
 
     bool locked = false;
     
@@ -63,9 +65,9 @@ public:
     vector<int> getGeneConst() const;
     void setGene(vector<int> gene);
 
-    vector<Route>& getRoutes();
-    vector<Route> getRoutesConst() const;    
-    void setRoutes(vector<Route> routes);
+    vector<ManagedRoute>& getRoutes();
+    vector<ManagedRoute> getRoutesConst() const;
+    void setRoutes(vector<ManagedRoute> routes);
 
     int getId() const;
     void setId(int id);
@@ -151,7 +153,9 @@ public:
 
     Individual copy();
     void update(Individual& source);
-        
+
+    void clearRoutes();
+
     void print();
     void print(bool gene);
     void printSolution(bool insertTotalCost = false);        

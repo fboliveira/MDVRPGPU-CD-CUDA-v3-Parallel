@@ -48,6 +48,10 @@ public:
 	void init();
 	void print();
 
+	T operator[](std::size_t index) {
+		return data[index];
+	}
+
 };
 
 // Constructor

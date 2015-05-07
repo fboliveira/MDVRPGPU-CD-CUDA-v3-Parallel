@@ -63,6 +63,8 @@ using namespace std;
 #define NUM_MAX_DEP 9
 #define NUM_MAX_CLI 360
 
+//#define MANAGED 0
+
 enum class Enum_Algorithms {
     SSGA,
     SSGPU,

@@ -209,8 +209,8 @@ void AlgorithmConfig::setParameters(MDVRPProblem *problem) {
     //this->setStopCriteria(NUM_GER); 
 
     // Tipo de processamento
-    this->setProcessType(MULTI_THREAD);
-    //this->setProcessType(MONO_THREAD);
+    //this->setProcessType(MULTI_THREAD);
+    this->setProcessType(MONO_THREAD);
 
     // MODO DE DEBUG
     this->setDebug(true);

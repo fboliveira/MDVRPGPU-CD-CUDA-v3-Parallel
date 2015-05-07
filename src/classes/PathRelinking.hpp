@@ -11,6 +11,7 @@
 #include <vector>
 #include "IndividualsGroup.hpp"
 #include "CustomerPosition.hpp"
+#include "../cuda/ManagedLocalSearch.hpp"
 
 class PathRelinking {
     

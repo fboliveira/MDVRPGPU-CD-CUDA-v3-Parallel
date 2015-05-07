@@ -36,8 +36,10 @@ void DoubleLinkedList::appendNodeAfter(Node *pos, int x) {
 
 	pos->next = n;
 
-	if ( pos == back )
+	if (pos == back)
 		back = n;
+
+	incSize();
 
 }
 
@@ -51,6 +53,9 @@ void DoubleLinkedList::appendNodeFront(int x) {
 		n->next = front;
 		front = n;
 	}
+
+	incSize();
+
 }
 
 void DoubleLinkedList::appendNodeBack(int x) {
@@ -65,23 +70,27 @@ void DoubleLinkedList::appendNodeBack(int x) {
 		back = n;
 	}
 
+	incSize();
+
 }
 
 void DoubleLinkedList::removeNode(Node *n) {
 
 	//  p-[ ]-n
 
-	if ( n == front )
+	if (n == front)
 		front = n->next;
 
-	if ( n == back )
+	if (n == back)
 		back = n->previous;
 
-	if ( n->previous != NULL)
+	if (n->previous != NULL)
 		n->previous->next = n->next;
 
-	if ( n->next != NULL )
+	if (n->next != NULL)
 		n->next->previous = n->previous;
+
+	decSize();
 
 }
 
@@ -89,7 +98,7 @@ void DoubleLinkedList::dispNodesForward() {
 	Node *temp = front;
 	cout << "\n\nNodes in forward order:" << endl;
 	while (temp != NULL) {
-		cout << temp->customer << "[" << temp->next << "]\t" ;
+		cout << temp->customer << "[" << temp->next << "]\t";
 		temp = temp->next;
 	}
 	cout << endl;
@@ -105,6 +114,14 @@ void DoubleLinkedList::dispNodesReverse() {
 	cout << endl;
 }
 
+DoubleLinkedList::DoubleLinkedList(DoubleLinkedList* other) {
+
+	for (Node* i = other->getFront(); i != NULL; i = other->getNext(i)) {
+		this->appendNodeBack(i->customer);
+	}
+
+}
+
 void DoubleLinkedList::destroyList() {
 	Node *T = back;
 	while (T != NULL) {
@@ -114,5 +131,63 @@ void DoubleLinkedList::destroyList() {
 	}
 	front = NULL;
 	back = NULL;
+	_size = 0;
 }
 
+Node* DoubleLinkedList::find(int customer) {
+
+	for (Node* i = this->getFront(); i != NULL; i = this->getNext(i)) {
+		if (i->customer == customer)
+			return i;
+	}
+
+	return NULL;
+
+}
+
+bool DoubleLinkedList::empty() {
+	return _size == 0; // front == NULL && back == NULL;
+}
+
+int DoubleLinkedList::size() {
+	return _size;
+}
+
+/*
+ * Operators
+ */
+
+/*
+ * Private methods
+ */
+
+void DoubleLinkedList::incSize() {
+	_size++;
+}
+
+vector<int> DoubleLinkedList::getVector() {
+
+	vector<int> v;
+	Node *temp = front;
+
+	while (temp != NULL) {
+		v.push_back(temp->customer);
+		temp = temp->next;
+	}
+
+}
+
+void DoubleLinkedList::setVector(vector<int> v) {
+
+	destroyList();
+
+	for(auto ite = v.begin(); ite != v.end(); ++ite)
+		appendNodeBack((*ite));
+
+}
+
+void DoubleLinkedList::decSize() {
+	_size--;
+	if (_size < 0)
+		destroyList();
+}

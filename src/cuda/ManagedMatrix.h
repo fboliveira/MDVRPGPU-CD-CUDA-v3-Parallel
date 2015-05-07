@@ -52,6 +52,7 @@ public:
 	void init();
 	void print();
 
+
 };
 
 // Constructor

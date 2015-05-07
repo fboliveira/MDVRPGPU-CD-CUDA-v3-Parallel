@@ -150,4 +150,5 @@
 			<resource resourceType="PROJECT" workspacePath="/MDVRPGPU-CD-CUDA-v3-Parallel"/>
 		</configuration>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

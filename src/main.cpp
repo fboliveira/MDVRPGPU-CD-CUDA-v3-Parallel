@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
 
     time_t start, end;
 
-    char inst[4], dat[300], sol[300];
+    char inst[10], dat[300], sol[300];
 
     // FATORES A SEREM AVALIADOS
     bool change = false;
